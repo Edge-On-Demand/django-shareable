@@ -3,6 +3,8 @@ Django Social Share
 
 Provides tempatetags for 'Tweet This' and 'Share this on Facebook'.
 
+A fork of django-social-share by Flavio Curella.
+
 Installation
 -------------
 

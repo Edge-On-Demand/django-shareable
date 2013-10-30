@@ -63,12 +63,22 @@ def post_to_twitter_url(context, text, obj_or_url=None):
 
     tweet = _compose_tweet(text, url)
     context['tweet_url'] = TWITTER_ENDPOINT % urlencode(tweet)
+    context['data_url'] = url
     return context
 
 
 @register.inclusion_tag('django_social_share/templatetags/post_to_twitter.html', takes_context=True)
-def post_to_twitter(context, text, obj_or_url=None, link_text='Post to Twitter'):
+def post_to_twitter(context, text, obj_or_url=None, link_text='Post to Twitter', *opts):
     context = post_to_twitter_url(context, text, obj_or_url)
+
+    extra_classes = ''
+    id = ''
+    for opt in opts:
+        if isinstance(opt, basestring):
+            if opt.startswith('extra_classes='):
+                extra_classes = opt.split('=')[-1]
+            elif opt.startswith('id='):
+                id = opt.split('=')[-1]
 
     request = context.get('request', MockRequest())
     url = _build_url(request, obj_or_url)
@@ -76,6 +86,8 @@ def post_to_twitter(context, text, obj_or_url=None, link_text='Post to Twitter')
 
     context['link_text'] = link_text
     context['full_text'] = tweet
+    context['extra_classes'] = extra_classes
+    context['id'] = id
     return context
 
 
@@ -88,7 +100,22 @@ def post_to_facebook_url(context, obj_or_url=None):
 
 
 @register.inclusion_tag('django_social_share/templatetags/post_to_facebook.html', takes_context=True)
-def post_to_facebook(context, obj_or_url=None, link_text='Post to Facebook'):
+def post_to_facebook(context, obj_or_url=None, link_text='Post to Facebook', *opts):
+    """
+    Wrapper around Facebook's "Share Dialog" widget.
+    https://developers.facebook.com/docs/plugins/share/
+    """
+    popup = 'popup' in opts
+    popup_width = 626
+    popup_height = 436
+    for opt in opts:
+        if opt.startswith('popup_width='):
+            popup_width = opt.split('=')[-1]
+        elif opt.startswith('popup_height='):
+            popup_height = opt.split('=')[-1]
     context = post_to_facebook_url(context, obj_or_url)
     context['link_text'] = link_text
+    context['popup'] = popup
+    context['popup_width'] = popup_width
+    context['popup_height'] = popup_height
     return context

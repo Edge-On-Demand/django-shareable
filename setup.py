@@ -9,13 +9,13 @@ requirements = []
 
 setup(
     name = "django-social-share",
-    version = "0.2.1",
+    version = "0.2.2",
     description = "Templatetags for 'tweet this' and 'share on facebook'",
     long_description = read('README.rst'),
-    url = 'https://github.com/fcurella/django-social-share',
+    url = 'https://github.com/chrisspen/django-social-share',
     license = 'MIT',
-    author = 'Flavio Curella',
-    author_email = 'flavio.curella@curella.org',
+    author = 'Chris Spencer',
+    author_email = 'chrisspen@gmail.com',
     packages = find_packages(exclude=['tests']),
     include_package_data=True,
     classifiers = [

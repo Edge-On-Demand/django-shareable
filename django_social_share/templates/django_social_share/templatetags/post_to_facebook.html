@@ -1,3 +1,9 @@
 <div class="facebook-this">
-    <a href="{{ facebook_url }}" target="_blank">{{link_text}}</a>
+    <a href="{{ facebook_url }}" target="_blank" {% if popup %}
+        onclick="window.open(
+          {#}'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(this.getAttribute('href')),#}
+          '{{ facebook_url }}',
+          'facebook-share-dialog', 
+          'width={{ popup_width }},height={{ popup_height }}'); 
+        return false;"{% endif %}>{{link_text}}</a>
 </div>
