@@ -1,3 +1,4 @@
 /.settings
 /.project
 /.pydevproject
+/django_shareable.egg-info
