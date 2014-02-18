@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 from setuptools import setup, find_packages
 
-import django_social_share
+import django_shareable
 
 setup(
-    name = "django-social-share",
-    version = django_social_share.__version__,
+    name = "django-shareable",
+    version = django_shareable.__version__,
     description = "Templatetags for 'tweet this' and 'share on facebook'",
     packages = find_packages(),
     package_data = {
-        'django_social_share': [
+        'django_shareable': [
             'templates/*.*',
             'templates/*/*.*',
             'templates/*/*/*.*',
@@ -18,7 +18,7 @@ setup(
             'static/*/*/*.*',
         ],
     },
-    url = 'https://github.com/chrisspen/django-social-share',
+    url = 'https://github.com/chrisspen/django-shareable',
     license = 'MIT',
     author = 'Chris Spencer',
     author_email = 'chrisspen@gmail.com',

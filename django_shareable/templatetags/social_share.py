@@ -67,7 +67,7 @@ def post_to_twitter_url(context, text, obj_or_url=None):
     return context
 
 
-@register.inclusion_tag('django_social_share/templatetags/post_to_twitter.html', takes_context=True)
+@register.inclusion_tag('django_shareable/templatetags/post_to_twitter.html', takes_context=True)
 def post_to_twitter(context, text, obj_or_url=None, link_text='Post to Twitter', *opts):
     context = post_to_twitter_url(context, text, obj_or_url)
 
@@ -99,7 +99,7 @@ def post_to_facebook_url(context, obj_or_url=None):
     return context
 
 
-@register.inclusion_tag('django_social_share/templatetags/post_to_facebook.html', takes_context=True)
+@register.inclusion_tag('django_shareable/templatetags/post_to_facebook.html', takes_context=True)
 def post_to_facebook(context, obj_or_url=None, link_text='Post to Facebook', *opts):
     """
     Wrapper around Facebook's "Share Dialog" widget.

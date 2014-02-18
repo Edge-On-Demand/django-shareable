@@ -1,4 +1,4 @@
-Django Social Share
+Django Shareable
 ======================================
 
 Provides tempatetags for 'Tweet This' and 'Share this on Facebook'.
@@ -10,11 +10,11 @@ Installation
 
 ::
 
-    $ pip install django-social-share
+    $ pip install django-shareable
 
 Add the app to ``INSTALLED_APPS``::
 
-  INSTALLED_APPS += ['django_social_share']
+  INSTALLED_APPS += ['django_shareable']
 
 It's recommended to add ``django.core.context_processors.request`` to your `` TEMPLATE_CONTEXT_PROCESSORS`` list. This way the templatetags will use the correct scheme and hostname.
 
@@ -53,4 +53,4 @@ Example::
   {% post_to_facebook object_or_url "Post to Facebook!" %}
   {% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Post to Twitter" %}
 
-Templates are in ``django_social_share/templatetags/post_to_twitter.html`` and ``django_social_share/templatetags/post_to_facebook.html``. You can override them to suit your mileage.
+Templates are in ``django_shareable/templatetags/post_to_twitter.html`` and ``django_shareable/templatetags/post_to_facebook.html``. You can override them to suit your mileage.
