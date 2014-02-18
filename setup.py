@@ -1,15 +1,14 @@
 import os
 from setuptools import setup, find_packages
 
+import django_social_share
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
     
-requirements = []
-
 setup(
     name = "django-social-share",
-    version = "0.2.3",
+    version = django_social_share.__version__,
     description = "Templatetags for 'tweet this' and 'share on facebook'",
     long_description = read('README.rst'),
     url = 'https://github.com/chrisspen/django-social-share',
@@ -28,6 +27,6 @@ setup(
         'Programming Language :: Python',
         'Framework :: Django',
     ],
-    install_requires = requirements,
+    install_requires = [],
     test_suite = "nose.collector",
 )
