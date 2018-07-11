@@ -74,7 +74,7 @@ def post_to_twitter(context, text, obj_or_url=None, link_text='Post to Twitter',
     extra_classes = ''
     id = ''
     for opt in opts:
-        if isinstance(opt, basestring):
+        if isinstance(opt, str):
             if opt.startswith('extra_classes='):
                 extra_classes = opt.split('=')[-1]
             elif opt.startswith('id='):
